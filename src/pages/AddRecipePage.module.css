@@ -185,6 +185,32 @@
 
 .ingredientRow .input { flex: 1; }
 
+.ingredientHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -0.25rem;
+}
+
+.bulkToggle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--orange-600);
+  background: var(--orange-50);
+  border: 1.5px solid var(--orange-200);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.bulkToggle:hover { background: var(--orange-100); }
+
+.bulkPasteArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .removeBtn {
   width: 32px;
   height: 32px;
