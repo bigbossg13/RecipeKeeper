@@ -73,37 +73,27 @@ export default function AddRecipePage() {
     setUrlFetching(true)
     setUrlError('')
 
-    // Attempt to extract metadata via Open Graph / JSON-LD via a CORS proxy
-    // Falls back gracefully with just the URL saved
     try {
-      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(urlInput)}`
-      const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(8000) })
+      const apiUrl = `https://api.microlink.io?url=${encodeURIComponent(urlInput)}`
+      const res = await fetch(apiUrl, { signal: AbortSignal.timeout(10000) })
       const data = await res.json()
-      const html = data.contents || ''
 
-      const parser = new DOMParser()
-      const doc = parser.parseFromString(html, 'text/html')
-
-      const getMeta = (name) =>
-        doc.querySelector(`meta[property="${name}"]`)?.getAttribute('content') ||
-        doc.querySelector(`meta[name="${name}"]`)?.getAttribute('content') || ''
-
-      const title = getMeta('og:title') || doc.title || ''
-      const description = getMeta('og:description') || getMeta('description') || ''
-      const image = getMeta('og:image') || ''
-
-      setForm(prev => ({
-        ...prev,
-        url: urlInput,
-        title: title.slice(0, 120),
-        description: description.slice(0, 500),
-        image,
-        source: 'url',
-      }))
+      if (data.status === 'success') {
+        const { title, description, image } = data.data
+        setForm(prev => ({
+          ...prev,
+          url: urlInput,
+          title: (title || '').slice(0, 120),
+          description: (description || '').slice(0, 500),
+          image: image?.url || '',
+          source: 'url',
+        }))
+      } else {
+        throw new Error('API returned non-success status')
+      }
     } catch {
-      // Proxy failed — just save the URL, user fills rest manually
       setForm(prev => ({ ...prev, url: urlInput, source: 'url' }))
-      setUrlError('Could not auto-fetch details (CORS/network). URL saved — please fill in details manually.')
+      setUrlError('Could not fetch page details automatically — URL saved, please fill in the title and description below.')
     } finally {
       setUrlFetching(false)
     }
