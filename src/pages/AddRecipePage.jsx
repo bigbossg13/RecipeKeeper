@@ -35,7 +35,7 @@ export default function AddRecipePage() {
         <h1 className={styles.title}>Add a Recipe</h1>
       </div>
       <RecipeForm
-        initialValues={{ source: initialMode, category: 'dinner', ingredients: [''] }}
+        initialValues={{ title: '', cuisine: '', type: '', description: '', url: '', image: '', instructions: '', tags: '', source: initialMode, category: 'dinner', ingredients: [''] }}
         onSubmit={handleSubmit}
         submitLabel="Save Recipe"
         backTo="/"
