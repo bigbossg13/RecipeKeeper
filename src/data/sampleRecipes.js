@@ -42,7 +42,7 @@ export const CUISINES = [
 export const RECIPE_TYPES = [
   'Soup', 'Salad', 'Sandwich', 'Pasta', 'Rice', 'Stew', 'Casserole',
   'Baked', 'Grilled', 'Fried', 'Raw', 'Smoothie', 'Cake', 'Cookie',
-  'Pie', 'Bread', 'Egg Dish', 'Meat', 'Seafood', 'Vegetarian', 'Vegan', 'Other',
+  'Pie', 'Bread', 'Brownie', 'Fudge', 'Egg Dish', 'Meat', 'Seafood', 'Vegetarian', 'Vegan', 'Other',
 ]
 
 export const SAMPLE_RECIPES = [
