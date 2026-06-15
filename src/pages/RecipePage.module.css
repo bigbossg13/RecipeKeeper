@@ -211,6 +211,21 @@
   gap: 0.5rem;
 }
 
+.editBtn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: var(--orange-500);
+  color: white;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.editBtn:hover { background: var(--orange-600); }
+
 .deleteBtn {
   width: 100%;
   padding: 0.6rem 1rem;
