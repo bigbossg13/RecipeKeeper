@@ -241,10 +241,21 @@
 }
 
 @media (max-width: 768px) {
+  .banner { padding: 1.5rem 1rem; }
+  .title { font-size: 1.4rem; }
   .body {
     grid-template-columns: 1fr;
     padding: 1rem;
+    gap: 1rem;
   }
   .sidebar { position: static; }
-  .title { font-size: 1.5rem; }
+  .metaCard, .tagsCard { padding: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .titleArea { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .sourcePill { font-size: 0.75rem; }
+  .sectionTitle { font-size: 1.1rem; }
+  .ingredient { font-size: 0.9rem; }
+  .instructions { font-size: 0.9rem; }
 }

@@ -277,8 +277,21 @@
 .successScreen p { color: var(--warm-gray-600); }
 
 @media (max-width: 640px) {
+  .header { padding: 1.5rem 1rem; }
+  .title { font-size: 1.5rem; }
+
   .body { padding: 1rem; }
+
+  .modeToggle { width: 100%; }
+  .modeBtn { flex: 1; text-align: center; }
+
+  .card { padding: 1.25rem; }
+  .cardTitle { font-size: 1rem; }
+
   .row2 { grid-template-columns: 1fr; }
   .urlRow { flex-direction: column; }
   .fetchBtn { width: 100%; }
+
+  .submitRow { flex-direction: column-reverse; }
+  .cancelBtn, .submitBtn { width: 100%; text-align: center; justify-content: center; }
 }
