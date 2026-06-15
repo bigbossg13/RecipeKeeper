@@ -168,9 +168,9 @@ export default function RecipeForm({ initialValues, onSubmit, submitLabel = 'Sav
 
   function validate() {
     const errs = {}
-    if (!form.title.trim()) errs.title = 'Title is required'
+    if (!(form.title || '').trim()) errs.title = 'Title is required'
     if (!form.category) errs.category = 'Category is required'
-    if (mode === 'url' && !form.url.trim()) errs.url = 'URL is required'
+    if (mode === 'url' && !(form.url || '').trim()) errs.url = 'URL is required'
     return errs
   }
 
