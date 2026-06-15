@@ -117,6 +117,9 @@ export default function RecipePage() {
           )}
 
           <div className={styles.actions}>
+            <Link to={`/edit/${recipe.id}`} className={styles.editBtn}>
+              ✏️ Edit Recipe
+            </Link>
             <button onClick={handleDelete} className={styles.deleteBtn}>
               🗑️ Delete Recipe
             </button>
